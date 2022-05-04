@@ -1,6 +1,7 @@
 # Cryptocurrency tracker app
 
-- use skill
-- - React
-- - Redux/toolkit
-- - Restful API
+use skills :
+
+- React
+- Redux/toolkit
+- RESTful API
