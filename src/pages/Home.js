@@ -5,6 +5,7 @@ import CryptoList from "../components/CryptoList/CryptoList";
 import HomeCard from "../components/HomeCard/HomeCard";
 import style from "./Home.module.css";
 import millify from "millify";
+import NewsList from "../components/CryptoList/NewsList";
 const Home = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
@@ -31,6 +32,7 @@ const Home = () => {
           <Link to="news">Show More</Link>
         </div>
         {/* <CryptoList more={true} /> */}
+        <NewsList more={false} />
       </HomeCard>
     </>
   );

@@ -3,7 +3,7 @@ import Layout from "./layout/Layout";
 import Home from "../src/pages/Home";
 import CryptoCurrency from "../src/pages/CryptoCurrency";
 import FavList from "../src/pages/FavList";
-import New from "../src/pages/New";
+import News from "../src/pages/News";
 function App() {
   return (
     <>
@@ -12,7 +12,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cryptocurrency" element={<CryptoCurrency />} />
           <Route path="/favorite" element={<FavList />} />
-          <Route path="/news" element={<New />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </Layout>
     </>
