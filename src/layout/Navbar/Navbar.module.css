@@ -1,0 +1,131 @@
+.nav {
+  top: 0;
+  /* --navbg-primary: #222230; */
+  --navbg-primary: #3b3b78;
+  --navbg-sec: #3d3d83;
+  --transition-speed: 600ms;
+
+  width: 5rem;
+  height: 100vh;
+
+  /* height: 1rem; */
+  /* width: 100vw; */
+  /* bottom: 0; */
+  /* top: 0; */
+
+  position: fixed;
+  background-color: var(--navbg-primary);
+
+  /* overflow: scroll; */
+  overflow: hidden;
+  transition: width 600ms ease;
+}
+
+.nav:hover {
+  width: 15rem;
+}
+
+.navbar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 5rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  transition: var(--transition-speed);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 25px;
+  height: 5rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.1ch;
+  font-weight: bold;
+  font-style: italic;
+  transition: var(--transition-speed);
+}
+
+.nav-logo svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+  transform: rotateY(0deg);
+  transition: var(--transition-speed);
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+/* ! 固定圖案大小 */
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+
+  transition: var(--transition-speed);
+}
+
+.nav-item svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.link-text {
+  display: none;
+  /* margin-left: 1rem; */
+  color: #afafec;
+  transition: var(--transition-speed);
+}
+
+.nav:hover {
+  background-color: var(--navbg-sec);
+}
+.nav:hover .link-text {
+  display: inline;
+  color: rgb(0, 162, 255);
+}
+
+.nav:hover .logo-text {
+  left: 1rem;
+}
+.nav:hover .nav-logo {
+  background-color: rgba(61, 47, 104, 0.789);
+}
+.nav:hover .nav-logo svg {
+  margin-left: 12rem;
+  transform: rotateY(360deg);
+  animation: coinRotate 3000ms;
+  /* animation-iteration-count: 5; */
+}
+
+.nav-item:hover {
+  transform: scale(1.1);
+  background-color: #393955;
+}
+.nav-item:hover svg {
+  color: rgb(248, 138, 231);
+}
+
+@keyframes coinRotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}

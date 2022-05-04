@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { Route, Routes } from "react-router-dom";
+import Layout from "./layout/Layout";
+import Home from "../src/pages/Home";
+import CryptoCurrency from "../src/pages/CryptoCurrency";
+import FavList from "../src/pages/FavList";
+import New from "../src/pages/New";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cryptocurrency" element={<CryptoCurrency />} />
+          <Route path="/favorite" element={<FavList />} />
+          <Route path="/news" element={<New />} />
+        </Routes>
+      </Layout>
+    </>
   );
 }
 
