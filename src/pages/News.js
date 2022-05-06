@@ -6,9 +6,10 @@ import CryptoCurrency from "./CryptoCurrency";
 
 const News = (props) => {
   return (
-    <div>
+    <>
+      <h1>News</h1>
       <NewsList more={true} />
-    </div>
+    </>
   );
 };
 export default News;
