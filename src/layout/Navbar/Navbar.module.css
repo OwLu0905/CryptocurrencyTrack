@@ -3,6 +3,8 @@
   /* --navbg-primary: #222230; */
   --navbg-primary: #3b3b78;
   --navbg-sec: #3d3d83;
+  /* --navbg-primary: #737f87e2;
+  --navbg-sec: #8d979b; */
   --transition-speed: 600ms;
 
   width: 5rem;
@@ -21,8 +23,16 @@
   transition: width 600ms ease;
 }
 
+.nav a {
+  text-decoration: none;
+}
+
+.link {
+  width: 100%;
+}
+
 .nav:hover {
-  width: 15rem;
+  width: 18rem;
 }
 
 .navbar {
@@ -39,8 +49,14 @@
   transition: var(--transition-speed);
 }
 
+.nav-logo svg {
+  color: aqua;
+  /* padding-left: 1rem; */
+}
+
 .nav-logo {
   display: flex;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   font-size: 25px;
@@ -71,6 +87,7 @@
 
 /* ! 固定圖案大小 */
 .nav-item {
+  /* width: 15rem; */
   width: 100%;
   display: flex;
   align-items: center;
@@ -80,16 +97,23 @@
 }
 
 .nav-item svg {
+  color: rgb(250, 122, 201);
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem;
+}
+
+.nav-item a {
+  text-decoration: none;
 }
 
 .link-text {
   display: none;
   /* margin-left: 1rem; */
   color: #afafec;
+  font-weight: bold;
   transition: var(--transition-speed);
+  font-size: 20px;
 }
 
 .nav:hover {
@@ -97,14 +121,14 @@
 }
 .nav:hover .link-text {
   display: inline;
-  color: rgb(0, 162, 255);
+  color: rgb(212, 216, 229);
 }
 
 .nav:hover .logo-text {
   left: 1rem;
 }
 .nav:hover .nav-logo {
-  background-color: rgba(61, 47, 104, 0.789);
+  background-color: rgba(193, 89, 165, 0.789);
 }
 .nav:hover .nav-logo svg {
   margin-left: 12rem;

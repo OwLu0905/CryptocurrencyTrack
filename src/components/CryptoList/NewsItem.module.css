@@ -6,15 +6,12 @@
   width: 30%;
   min-width: 25rem;
   max-width: 50rem;
-  /* background-color: rgb(248, 231, 191); */
   background-color: rgb(247, 233, 198);
   margin: 1rem;
   padding: 0 1rem 0 1rem;
-
-  /* border-radius: 12px; */
-  /* height: 16rem; */
   box-shadow: 10px 10px 5px #aaaaaa;
 }
+
 .item a {
   text-decoration: none;
   width: 100%;
@@ -22,7 +19,7 @@
 
 .pic {
   font-weight: bold;
-  font-size: 26px;
+  font-size: 22px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -35,9 +32,7 @@
 }
 .pic img {
   width: 8rem;
-  /* height: 8rem; */
   margin-left: 1rem;
-  /* border-radius: 30%; */
 }
 
 .description {
@@ -60,15 +55,23 @@
 
 .duration {
   width: 100%;
+  margin-top: auto;
   display: flex;
-  padding: 0rem 1rem 1rem 1rem;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 2rem 1rem 1rem 1rem;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.duration img {
-  width: 2rem;
-  height: 2rem;
+.provider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem 0 0.5rem;
+}
+.provider img {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  margin-right: 1rem;
+  margin-right: 0.1rem;
 }

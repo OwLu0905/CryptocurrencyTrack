@@ -1,0 +1,4 @@
+.wrap-stats {
+  display: flex;
+  flex-wrap: wrap;
+}

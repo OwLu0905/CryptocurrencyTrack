@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./CryptoItem.module.css";
 import millify from "millify";
 const CryptoItem = (props) => {
@@ -14,17 +15,19 @@ const CryptoItem = (props) => {
   return (
     <>
       <li className={style.item}>
-        <div className={style.icon}>
-          <h2>{data.name}</h2>
-          <img src={data.iconUrl} alt={data.name} />
-        </div>
-        <div className={style.info}>
-          <p>Price: {millify(data.price)}</p>
-          <p>Marker Cap: {millify(data.marketCap)}</p>
-          <p style={{ color: `${dailyChangeStyle}` }}>
-            Daily Change: {millify(data.change)}%
-          </p>
-        </div>
+        <Link className={style.crypto} to={`/cryptocurrency/${data.uuid}`}>
+          <div className={style.icon}>
+            <h2>{data.name}</h2>
+            <img src={data.iconUrl} alt={data.name} />
+          </div>
+          <div className={style.info}>
+            <p>Price: {millify(data.price)}</p>
+            <p>Marker Cap: {millify(data.marketCap)}</p>
+            <p style={{ color: `${dailyChangeStyle}` }}>
+              Daily Change: {millify(data.change)}%
+            </p>
+          </div>
+        </Link>
       </li>
     </>
   );

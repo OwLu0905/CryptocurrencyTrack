@@ -1,3 +1,17 @@
+.crypto {
+  color: rgb(184, 47, 184);
+  width: 100%;
+  text-decoration: none;
+}
+.crypto:hover,
+.crypto:active {
+  color: rgba(172, 211, 63, 0.657);
+}
+
+/* .crypto:visited {
+  color: rgb(247, 76, 247);
+} */
+
 .item {
   display: flex;
   flex-direction: column;

@@ -17,32 +17,35 @@ const Navbar = () => {
             </span>
             <BsCoin size={30} />
           </li>
-          <li className={style["nav-item"]}>
-            <Link to="/">
+
+          <Link className={style.link} to="/">
+            <li className={style["nav-item"]}>
               <AiOutlineHome size={30} />
               <span className={style["link-text"]}>Home</span>
-            </Link>
-          </li>
-          <li className={style["nav-item"]}>
-            <Link to="cryptocurrency">
+            </li>
+          </Link>
+
+          <Link className={style.link} to="/cryptocurrency">
+            <li className={style["nav-item"]}>
               <AiOutlineLineChart size={30} />
               <span className={style["link-text"]}>CryptoCurrency</span>
-            </Link>
-          </li>
+            </li>
+          </Link>
 
-          <li className={style["nav-item"]}>
-            <Link to="/favorite">
+          <Link className={style.link} to="/favorite">
+            <li className={style["nav-item"]}>
               <MdOutlineFavoriteBorder size={30} />
               {/* <AiOutlineLineChart size={30} /> */}
               <span className={style["link-text"]}>Favorites</span>
-            </Link>
-          </li>
-          <li className={style["nav-item"]}>
-            <Link to="/news">
+            </li>
+          </Link>
+
+          <Link className={style.link} to="/news">
+            <li className={style["nav-item"]}>
               <BiNews size={30} />
               <span className={style["link-text"]}>News</span>
-            </Link>
-          </li>
+            </li>
+          </Link>
         </ul>
       </nav>
     </>

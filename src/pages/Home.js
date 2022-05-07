@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useGetCryptosQuery } from "../api/cryptoApi";
 import CryptoList from "../components/CryptoList/CryptoList";
-import HomeCard from "../components/HomeCard/HomeCard";
+import HomeCard from "../layout/HomeCard/HomeCard";
 import style from "./Home.module.css";
 import millify from "millify";
 import NewsList from "../components/CryptoList/NewsList";
