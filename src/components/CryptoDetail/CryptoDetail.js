@@ -1,30 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Component } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
   useGetCryptosQuery,
 } from "../../api/cryptoApi";
-import millify from "millify";
 import HTMLReactParser from "html-react-parser";
 import DetailStatistic from "../Detail/DetailStatistic";
-import style from "./CryptoDetail.module.css";
 import DetailLink from "../Detail/DetailLink";
+import style from "./CryptoDetail.module.css";
+
+import Select from "react-select";
+import millify from "millify";
+import LineChart from "../Detail/LineChart";
 const CryptoDetail = () => {
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("24h");
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-  const { data: historyData } = useGetCryptoHistoryQuery({
-    coinId,
-    timePeriod,
-  });
+  const { data: historyData, isFetching: chartFetcing } =
+    useGetCryptoHistoryQuery({
+      coinId,
+      timePeriod,
+    });
   const [cryptoDetailItem, setCryptoDetailItem] = useState([]);
-  console.log(historyData);
+
   useEffect(() => {
     setCryptoDetailItem(data?.data?.coin);
   }, [data]);
-  if (isFetching) return <h1>Loading...</h1>;
+
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
+  const timeArray = [];
+
+  for (let i = 0; i < time.length; i++) {
+    const arr = { value: time[i], label: time[i] };
+    timeArray.push(arr);
+  }
+
+  if (isFetching) return <h1>Loading...</h1>;
+
   const stats = [
     {
       title: "Price to USD",
@@ -90,7 +103,7 @@ const CryptoDetail = () => {
   ];
 
   const timePeriodHandler = (e) => {
-    setTimePeriod(e.target.value);
+    setTimePeriod(e.value);
   };
 
   let description;
@@ -99,7 +112,6 @@ const CryptoDetail = () => {
   }
   return (
     <div>
-      {/* <p>{JSON.stringify(cryptoDetailItem)}</p> */}
       <div>
         <div>
           <h1>
@@ -111,11 +123,22 @@ const CryptoDetail = () => {
           statistics, market cap and supply.
         </p>
       </div>
-      <select onChange={timePeriodHandler}>
-        {time.map((time) => (
-          <option key={time}>{time}</option>
-        ))}
-      </select>
+
+      <Select
+        options={timeArray}
+        onChange={timePeriodHandler}
+        defaultValue={timeArray[1]}
+        className={style.select}
+      />
+
+      <LineChart
+        historyData={historyData}
+        // cryptoDetailItem={cryptoDetailItem}
+        name={cryptoDetailItem?.name}
+        price={cryptoDetailItem?.price}
+        period={timePeriod}
+        chartFetcing={chartFetcing}
+      />
       <div className={style["wrap-stats"]}>
         <DetailStatistic
           name={cryptoDetailItem?.name}

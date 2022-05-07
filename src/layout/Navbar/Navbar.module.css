@@ -6,7 +6,7 @@
   /* --navbg-primary: #737f87e2;
   --navbg-sec: #8d979b; */
   --transition-speed: 600ms;
-
+  z-index: 999;
   width: 5rem;
   height: 100vh;
 
@@ -47,6 +47,7 @@
   height: 100%;
   width: 100%;
   transition: var(--transition-speed);
+  z-index: 999;
 }
 
 .nav-logo svg {
