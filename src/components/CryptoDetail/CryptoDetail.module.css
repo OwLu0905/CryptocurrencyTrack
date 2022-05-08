@@ -1,8 +1,50 @@
-.wrap-stats {
+.abstract {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* background-color: rgb(241, 253, 249); */
 }
-.select {
-  color: red;
-  z-index: 1;
+
+.abstract h1 {
+  margin: 2rem 0 1rem 0;
+  padding: 0;
+  color: rgb(38, 38, 203);
+  font-size: 42px;
+}
+.abstract p {
+  margin: 0;
+  font-size: 21px;
+  color: rgba(112, 103, 103, 0.827);
+}
+
+/* .chart {
+  width: 100%;
+  margin: 1rem 2rem;
+  padding: 1rem 2rem;
+  background-color: rgb(241, 253, 249);
+} */
+
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  width: 50%;
+  margin: 1rem;
+  padding: 0 1rem;
+  background-color: rgb(241, 253, 249);
+}
+.description h1 {
+  padding-left: 0rem;
+}
+
+.description p {
+  padding-left: 1rem;
+  font-size: 18px;
+}
+.description h3 {
+  padding-left: 1rem;
+  font-size: 22px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./NewsItem.module.css";
+import { BiMessageRoundedDetail } from "react-icons/bi";
 import moment from "moment";
 const NewsItem = (props) => {
   const description =
@@ -20,9 +21,13 @@ const NewsItem = (props) => {
         <div className={style.description}>
           <p>
             {description}
-            <a target="_blank" rel="noreferrer" href={props.news.url}>
-              ...see more
-            </a>
+            ...
+            <span>
+              <a target="_blank" rel="noreferrer" href={props.news.url}>
+                see more
+                <BiMessageRoundedDetail size={"1.5rem"} />
+              </a>
+            </span>
           </p>
         </div>
         <div className={style.duration}>

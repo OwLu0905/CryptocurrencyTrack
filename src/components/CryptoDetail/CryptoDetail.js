@@ -3,16 +3,18 @@ import { Routes, Route, useParams } from "react-router-dom";
 import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
-  useGetCryptosQuery,
 } from "../../api/cryptoApi";
 import HTMLReactParser from "html-react-parser";
 import DetailStatistic from "../Detail/DetailStatistic";
 import DetailLink from "../Detail/DetailLink";
 import style from "./CryptoDetail.module.css";
 
-import Select from "react-select";
+// import Select from "react-select";
 import millify from "millify";
 import LineChart from "../Detail/LineChart";
+import HomeCard from "../../layout/HomeCard/HomeCard";
+import { TiTickOutline, TiTimesOutline } from "react-icons/ti";
+
 const CryptoDetail = () => {
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("24h");
@@ -37,68 +39,84 @@ const CryptoDetail = () => {
   }
 
   if (isFetching) return <h1>Loading...</h1>;
-
   const stats = [
     {
       title: "Price to USD",
       value: `${cryptoDetailItem?.price && millify(cryptoDetailItem?.price)}`,
-      icon: "icon",
+      icon: <TiTickOutline />,
     },
     {
       title: "Rank",
       value: `${cryptoDetailItem?.rank}`,
-      icon: "icon",
+      icon: <TiTickOutline />,
     },
     {
       title: "24h Volume",
-      value: `${
+      value: `$ ${
         cryptoDetailItem?.name ? millify(cryptoDetailItem["24hVolume"]) : ""
       }`,
-      icon: "icon",
+      icon: <TiTickOutline />,
     },
     {
       title: "Market Cap",
-      value: `${
+      value: `$ ${
         cryptoDetailItem?.marketCap && millify(cryptoDetailItem?.marketCap)
       }`,
-      icon: "icon",
+      icon: <TiTickOutline />,
     },
     {
       title: "All-time-high(daily avg.)",
-      value: `${
+      value: `$ ${
         cryptoDetailItem?.allTimeHigh?.price
           ? millify(cryptoDetailItem?.allTimeHigh.price)
           : ""
       }`,
-      icon: "icon",
+      icon: <TiTickOutline />,
     },
   ];
 
   const genericStats = [
     {
       title: "Number of Markets",
-      value: `${cryptoDetailItem?.numberOfMarkets}`,
-      icon: "icon",
+      value: `${
+        cryptoDetailItem?.numberOfMarkets
+          ? millify(cryptoDetailItem?.numberOfMarkets)
+          : "null"
+      }`,
+      icon: <TiTickOutline />,
     },
     {
       title: "Number of Exchanges",
-      value: `${cryptoDetailItem?.numberOfExchanges}`,
-      icon: "icon",
+      value: `${
+        cryptoDetailItem?.numberOfExchanges
+          ? millify(cryptoDetailItem?.numberOfExchanges)
+          : ""
+      }`,
+      icon: <TiTickOutline />,
     },
     {
       title: "Approved Supply",
-      value: `${cryptoDetailItem?.supply?.confirmed ? "yes" : "no"}`,
-      icon: "icon",
+      value: `${cryptoDetailItem?.supply?.confirmed ? "Yes" : "No"}`,
+
+      icon: <TiTickOutline />,
     },
     {
       title: "Total Supply",
-      value: `${cryptoDetailItem?.supply?.total}`,
-      icon: "icon",
+      value: `$ ${
+        cryptoDetailItem?.supply?.total
+          ? millify(cryptoDetailItem?.supply?.total)
+          : ""
+      }`,
+      icon: <TiTickOutline />,
     },
     {
       title: "Circulating Supply",
-      value: `${cryptoDetailItem?.supply?.circulating}`,
-      icon: "icon",
+      value: `$ ${
+        cryptoDetailItem?.supply?.circulating
+          ? millify(cryptoDetailItem?.supply?.circulating)
+          : ""
+      }`,
+      icon: <TiTickOutline />,
     },
   ];
 
@@ -110,56 +128,63 @@ const CryptoDetail = () => {
   if (cryptoDetailItem?.description) {
     description = HTMLReactParser(cryptoDetailItem?.description);
   }
+
   return (
-    <div>
-      <div>
-        <div>
+    <>
+      <HomeCard>
+        <div className={style.abstract}>
           <h1>
-            {cryptoDetailItem?.name} ({cryptoDetailItem?.symbol})
+            <img
+              src={cryptoDetailItem?.iconUrl}
+              alt={cryptoDetailItem?.symbol}
+              width={"50px"}
+            />
+            {cryptoDetailItem?.name} ({cryptoDetailItem?.symbol}){" "}
           </h1>
+          <p>
+            {cryptoDetailItem?.name} live price in US dollars. View value
+            statistics, market cap and supply.
+          </p>
         </div>
-        <p>
-          {cryptoDetailItem?.name} live price in US dollars. View value
-          statistics, market cap and supply.
-        </p>
-      </div>
 
-      <Select
-        options={timeArray}
-        onChange={timePeriodHandler}
-        defaultValue={timeArray[1]}
-        className={style.select}
-      />
+        <div className={style.chart}>
+          <LineChart
+            historyData={historyData}
+            name={cryptoDetailItem?.name}
+            price={cryptoDetailItem?.price}
+            period={timePeriod}
+            chartFetcing={chartFetcing}
+            timeArray={timeArray}
+            timePeriodHandler={timePeriodHandler}
+          />
+        </div>
 
-      <LineChart
-        historyData={historyData}
-        // cryptoDetailItem={cryptoDetailItem}
-        name={cryptoDetailItem?.name}
-        price={cryptoDetailItem?.price}
-        period={timePeriod}
-        chartFetcing={chartFetcing}
-      />
-      <div className={style["wrap-stats"]}>
-        <DetailStatistic
-          name={cryptoDetailItem?.name}
-          stats={stats}
-          other={false}
-        />
-        <DetailStatistic
-          name={cryptoDetailItem?.name}
-          stats={genericStats}
-          other={true}
-        />
-      </div>
-      <div>
-        <h1>What is {cryptoDetailItem?.name}</h1>
-        {description}
-      </div>
-      <div>
-        <h1>{cryptoDetailItem?.name} Link</h1>
-        <DetailLink links={cryptoDetailItem?.links} />
-      </div>
-    </div>
+        <div className={style["wrap"]}>
+          <DetailStatistic
+            name={cryptoDetailItem?.name}
+            stats={stats}
+            other={false}
+          />
+          <DetailStatistic
+            name={cryptoDetailItem?.name}
+            stats={genericStats}
+            other={true}
+          />
+        </div>
+
+        <div className={style["wrap"]}>
+          <div className={style.description}>
+            <h1>What is {cryptoDetailItem?.name}</h1>
+            {description}
+          </div>
+
+          <div className={style.description}>
+            <h1>{cryptoDetailItem?.name} Links</h1>
+            <DetailLink links={cryptoDetailItem?.links} />
+          </div>
+        </div>
+      </HomeCard>
+    </>
   );
 };
 

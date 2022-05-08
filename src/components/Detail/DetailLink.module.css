@@ -1,0 +1,45 @@
+.links {
+  list-style: circle;
+  padding: 0 1rem;
+}
+
+.links a {
+  color: seagreen;
+  text-decoration: none;
+}
+
+.links li:hover {
+  background-color: bisque;
+}
+
+.para {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid sandybrown;
+  font-size: 20px;
+}
+
+.para p {
+  margin: 0.6rem;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(6, 87, 6);
+}
+
+.para p::first-letter {
+  text-transform: capitalize;
+}
+
+.para a {
+  color: seagreen;
+  text-decoration: none;
+}
+.cite {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

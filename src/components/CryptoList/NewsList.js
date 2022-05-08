@@ -36,24 +36,17 @@ const NewsList = (props) => {
   // const searchList = ["Bitcoin", "ETH", "SOL"];
   return (
     <>
-      {/* {searchList.map((item) => (
-        <input key={item} type="button" value={item} onClick={searchHandler} />
-       
-      ))} */}
-      <div className={style.news}>
-        <label htmlFor="coins">Get News :</label>
-        <select
-          className={style.select}
-          placeholder="Select a Crypto"
-          id="coins"
-          onChange={searchHandler}
-        >
-          <option>Crypto News</option>
-          {selectValue?.map((item) => (
-            <option key={item.uuid}>{item.name}</option>
-          ))}
-        </select>
-      </div>
+      {props.more && (
+        <div className={style.news}>
+          <label htmlFor="coins">Get News :</label>
+          <select className={style.select} id="coins" onChange={searchHandler}>
+            <option>Crypto News</option>
+            {selectValue?.map((item) => (
+              <option key={item.uuid}>{item.name}</option>
+            ))}
+          </select>
+        </div>
+      )}
       <ul className={style.list}>
         {newsValue?.map((news) => (
           <NewsItem key={news.name} news={news} defaultImg={demoImage} />

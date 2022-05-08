@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   width: 100%;
   margin: 0;
-  padding: 0 0rem 1.5rem 0;
+  padding: 0 0rem 1.5rem 1.5rem;
 }
 
 .news label {
@@ -14,7 +14,7 @@
 .select {
   /* background-color: white; */
   --select-bg: rgb(255, 245, 224);
-  --select-ft: rgb(12, 45, 235);
+  --select-ft: rgb(24, 55, 231);
   background-color: var(--select-bg);
   border: thin solid rgb(106, 99, 90);
   color: var(--select-ft);

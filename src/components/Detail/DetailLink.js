@@ -1,18 +1,25 @@
 import React from "react";
-
+import style from "./DetailLink.module.css";
+import { AiOutlineLink } from "react-icons/ai";
 const DetailLink = ({ links }) => {
   return (
     <>
-      <ul>
+      <ul className={style.links}>
         {links?.map((link) => (
-          <li key={link.url}>
-            <p>
-              {link.type}
-              <a href={link.url} target="_blank" rel="noreferrer">
-                {link.name}
-              </a>
-            </p>
-          </li>
+          <a
+            className={style.link}
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <li className={style.para}>
+              <div className={style.cite}>
+                <AiOutlineLink />
+                <p>{link.type}</p>
+              </div>
+              {link.name}
+            </li>
+          </a>
         ))}
       </ul>
     </>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useGetCryptosQuery } from "../../api/cryptoApi";
+import HomeCard from "../../layout/HomeCard/HomeCard";
 import CryptoItem from "./CryptoItem";
 import style from "./CryptoList.module.css";
 import Search from "./Search";
@@ -22,7 +23,7 @@ const CryptoList = (props) => {
     setEnteredValue(event.target.value);
   };
 
-  if (isFetching) return <h1>"Loading..."</h1>;
+  if (isFetching) return <h1>Loading...</h1>;
 
   return (
     <>

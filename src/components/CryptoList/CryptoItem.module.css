@@ -1,16 +1,12 @@
 .crypto {
-  color: rgb(184, 47, 184);
+  color: rgba(148, 11, 233, 0.657);
   width: 100%;
   text-decoration: none;
 }
 .crypto:hover,
 .crypto:active {
-  color: rgba(172, 211, 63, 0.657);
+  color: rgb(184, 47, 199);
 }
-
-/* .crypto:visited {
-  color: rgb(247, 76, 247);
-} */
 
 .item {
   display: flex;
@@ -20,10 +16,11 @@
   width: 20%;
   min-width: 20rem;
   max-width: 40rem;
-  background-color: rgb(240, 224, 243);
-  margin: 1rem;
+  background-color: rgba(237, 236, 237, 0.912);
+  margin: 0.5rem;
+  padding: 0.5 1rem 0.5 1rem;
   /* border-radius: 8px; */
-  box-shadow: 10px 10px 5px #aaaaaa;
+  box-shadow: 3px 2px 5px #aaaaaa;
 }
 
 .icon {
@@ -32,14 +29,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   margin-left: 1rem;
   border-bottom: 2px solid rgb(184, 47, 184);
   width: 90%;
 }
-
 .icon img {
   width: 30px;
+  /* color: rgba(6, 84, 30, 0.766); */
 }
 
 .info {
@@ -51,7 +48,11 @@
   height: auto;
 }
 
+.detailInfo {
+  font-weight: bold;
+}
 .info p {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0.5rem;
+  font-weight: bold;
 }

@@ -20,10 +20,10 @@ const DetailStatistic = ({ name, stats, other }) => {
         {stats.map(({ icon, title, value }) => (
           <li key={title} className={style.li}>
             <div className={style.icon}>
-              <p>{icon}</p>
-              <p>{title}</p>
+              {icon}
+              {title}
             </div>
-            <p>{value}</p>
+            <p style={{ fontWeight: "bold" }}>{value}</p>
           </li>
         ))}
       </ul>
