@@ -14,10 +14,14 @@ import millify from "millify";
 import LineChart from "../Detail/LineChart";
 import HomeCard from "../../layout/HomeCard/HomeCard";
 import { TiTickOutline, TiTimesOutline } from "react-icons/ti";
+import { useSelector } from "react-redux";
 
 const CryptoDetail = () => {
+  const favIem = useSelector((state) => state.fav.items);
+  console.log(favIem);
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("24h");
+  const [timeIndex, setTimeIndex] = useState(1);
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
   const { data: historyData, isFetching: chartFetcing } =
     useGetCryptoHistoryQuery({
@@ -37,7 +41,6 @@ const CryptoDetail = () => {
     const arr = { value: time[i], label: time[i] };
     timeArray.push(arr);
   }
-
   if (isFetching) return <h1>Loading...</h1>;
   const stats = [
     {
@@ -122,6 +125,8 @@ const CryptoDetail = () => {
 
   const timePeriodHandler = (e) => {
     setTimePeriod(e.value);
+    const indexFind = timeArray.findIndex((time) => time.value === e.value);
+    setTimeIndex(indexFind);
   };
 
   let description;
@@ -156,6 +161,7 @@ const CryptoDetail = () => {
             chartFetcing={chartFetcing}
             timeArray={timeArray}
             timePeriodHandler={timePeriodHandler}
+            timeIndex={timeIndex}
           />
         </div>
 

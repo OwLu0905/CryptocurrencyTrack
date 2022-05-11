@@ -1,0 +1,32 @@
+.table th,
+td {
+  border-bottom: solid 1px rgb(232, 152, 152);
+  padding: 5px;
+}
+.crypto {
+  color: rgba(148, 11, 233, 0.657);
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  /* justify-content: center; */
+  align-items: center;
+}
+.crypto:hover,
+.crypto:active {
+  color: rgb(184, 47, 199);
+}
+
+.head {
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.body {
+  width: 20%;
+  text-align: center;
+  color: blue;
+}

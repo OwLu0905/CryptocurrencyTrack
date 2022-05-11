@@ -12,9 +12,7 @@ const Navbar = () => {
       <nav className={style.nav}>
         <ul className={style.navbar}>
           <li className={style["nav-logo"]}>
-            <span className={`${style["link-text"]}  ${style["logo-text"]} `}>
-              CryptoTracker
-            </span>
+            <span className={` ${style["logo-text"]} `}>CryptoTracker</span>
             <BsCoin size={30} />
           </li>
 

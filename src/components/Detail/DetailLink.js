@@ -11,6 +11,7 @@ const DetailLink = ({ links }) => {
             href={link.url}
             target="_blank"
             rel="noreferrer"
+            key={link.url}
           >
             <li className={style.para}>
               <div className={style.cite}>

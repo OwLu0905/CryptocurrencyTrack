@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CryptoItem.module.css";
 import millify from "millify";
+import { sendFavData } from "../../api/facAction";
+import { useDispatch, useSelector } from "react-redux";
+import { favActions } from "../../api/favSlice";
 const CryptoItem = (props) => {
   const data = props.coin;
-
+  const dispatch = useDispatch();
   const dailyChange = +data.change;
   let dailyChangeStyle = "black ";
   if (dailyChange > 0) {
@@ -12,35 +15,35 @@ const CryptoItem = (props) => {
   } else {
     dailyChangeStyle = "rgba(196, 21, 21, 0.906)";
   }
+
+  const favHandler = () => {
+    dispatch(favActions.addFavItem({ uuid: data.uuid }));
+  };
+
   return (
-    <>
-      <li className={style.item}>
-        <Link className={style.crypto} to={`/cryptocurrency/${data.uuid}`}>
-          <div className={style.icon}>
-            <h2>
-              {data.rank}. {data.name}
-            </h2>
-            <img src={data.iconUrl} alt={data.name} />
-          </div>
-          <div className={style.info}>
-            <p>
-              <span className={style.detailInfo}>Price:</span>{" "}
-              {millify(data.price)}
-            </p>
-            <p>
-              <span className={style.detailInfo}>Marker Cap:</span>{" "}
-              {millify(data.marketCap)}
-            </p>
-            <p>
-              <span className={style.detailInfo}>Daily Change:</span>{" "}
-              <span style={{ color: `${dailyChangeStyle}` }}>
-                {millify(data.change)}%
-              </span>
-            </p>
-          </div>
-        </Link>
-      </li>
-    </>
+    <li className={style.item} onClick={favHandler}>
+      <Link className={style.crypto} to={`/cryptocurrency/${data.uuid}`}>
+        <div className={style.icon}>
+          {/* <h2> */}
+          <span style={{ width: "2rem" }}>{data.rank}.</span>{" "}
+          <img src={data.iconUrl} alt={data.name} /> {data.name}
+          {/* </h2> */}
+        </div>
+        <p className={style.info}>{millify(data.price)}</p>
+        <p className={style.info}>{millify(data.marketCap)}</p>
+        <p className={style.info}>
+          <span
+            style={{
+              color: `${dailyChangeStyle}`,
+              width: "6rem",
+              textAlign: "center",
+            }}
+          >
+            {millify(data.change)}%
+          </span>
+        </p>
+      </Link>
+    </li>
   );
 };
 

@@ -12,7 +12,6 @@ const Home = () => {
   const globalStats = data?.data?.stats;
 
   const { data: stats } = useGetCryptoStateQuery();
-  console.log(stats);
   if (isFetching) return <h1>Loading...</h1>;
   return (
     <>
@@ -44,13 +43,20 @@ const Home = () => {
               <p> {millify(globalStats.totalMarkets)}</p>
             </li>
           </ul>
-
-          <ul className={style.globalInfo}>
-            <h2>Best Coins</h2>
-            {stats?.data?.bestCoins.map((coin) => (
-              <BestCoin coin={coin} key={coin.uuid} />
-            ))}
-          </ul>
+          <div className={style["new-coins"]}>
+            <ul className={style.globalInfoCoin}>
+              <h2>Best Coins</h2>
+              {stats?.data?.bestCoins.map((coin) => (
+                <BestCoin coin={coin} key={coin.uuid} />
+              ))}
+            </ul>
+            <ul className={style.globalInfoCoin}>
+              <h2>Newest Coins</h2>
+              {stats?.data?.newestCoins.map((coin) => (
+                <BestCoin coin={coin} key={coin.uuid} />
+              ))}
+            </ul>
+          </div>
         </section>
       </HomeCard>
       <HomeCard>

@@ -1,4 +1,4 @@
-import React, { cloneElement, useEffect } from "react";
+import React, { cloneElement, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import millify from "millify";
@@ -17,10 +17,16 @@ const LineChart = ({
   chartFetcing,
   timeArray,
   timePeriodHandler,
+  timeIndex,
 }) => {
   const change = historyData?.data.change ? historyData?.data.change : false;
   const chnageInfo = change ? `${change}%` : "No Information";
 
+  /**
+   * TODO Select 默認選項用useState儲存
+   */
+
+  const [selectValue, setSelectValue] = useState("7d");
   const coinPrice = [];
   const coinTimestamp = [];
 
@@ -120,9 +126,19 @@ const LineChart = ({
 
   if (chartFetcing) {
     return (
-      <div>
+      <div className={style.nameInfo}>
         <h1>{name} Price Chart: </h1>
-        <h1>loading...</h1>;
+        <div className={style.change}>
+          <div className={style["change-fetch"]}>
+            <h1>Loading</h1>
+          </div>
+          <Select
+            options={timeArray}
+            onChange={timePeriodHandler}
+            defaultValue={timeArray[timeIndex]}
+            className={style.select}
+          />
+        </div>
       </div>
     );
   }
@@ -137,12 +153,12 @@ const LineChart = ({
       changeStyle = "red";
     }
   }
-  //   let changeStyle = change > 0 ? "green" : "red";
 
   return (
     <>
       <div className={style.nameInfo}>
         <h1>{name} Price Chart: </h1>
+
         <div className={style.change}>
           <div className={style["change-info"]}>
             <p className={style["change-rate"]}>
@@ -156,7 +172,7 @@ const LineChart = ({
           <Select
             options={timeArray}
             onChange={timePeriodHandler}
-            defaultValue={timeArray[1]}
+            defaultValue={timeArray[timeIndex]}
             className={style.select}
           />
         </div>
