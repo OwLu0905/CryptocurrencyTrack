@@ -5,6 +5,7 @@ import CryptoCurrency from "../src/pages/CryptoCurrency";
 import FavList from "../src/pages/FavList";
 import News from "../src/pages/News";
 import CryptoDetail from "./components/CryptoDetail/CryptoDetail";
+import Loading from "./layout/Load/Loading";
 function App() {
   return (
     <>
@@ -13,8 +14,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="cryptocurrency/" element={<CryptoCurrency />} />
           <Route path="cryptocurrency/:coinId" element={<CryptoDetail />} />
-          <Route path="favorite" element={<FavList />} />
+          {/* <Route path="favorite" element={<FavList />} /> */}
           <Route path="news" element={<News />} />
+          <Route path="loading" element={<Loading />} />
         </Routes>
       </Layout>
     </>

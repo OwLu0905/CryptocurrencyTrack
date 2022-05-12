@@ -2,11 +2,8 @@
   display: flex;
   width: 100%;
   justify-content: center;
-  height: 5rem;
-}
-
-.form form {
-  height: 2rem;
+  align-items: center;
+  /* height: 5rem; */
 }
 
 .form label {

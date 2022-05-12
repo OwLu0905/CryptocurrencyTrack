@@ -7,12 +7,24 @@ import style from "./Home.module.css";
 import millify from "millify";
 import NewsList from "../components/CryptoList/NewsList";
 import BestCoin from "../components/Detail/BestCoin";
+import Loading from "../layout/Load/Loading";
 const Home = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
   const { data: stats } = useGetCryptoStateQuery();
-  if (isFetching) return <h1>Loading...</h1>;
+  // console.log(globalStats);
+
+  if (isFetching || !globalStats)
+    return (
+      <HomeCard>
+        <div className={style.global}>
+          <h1>Global Stats</h1>
+        </div>
+        <Loading />
+      </HomeCard>
+    );
+
   return (
     <>
       <HomeCard>

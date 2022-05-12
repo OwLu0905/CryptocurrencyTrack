@@ -3,7 +3,6 @@ import style from "./Navbar.module.css";
 
 import { AiOutlineHome, AiOutlineLineChart } from "react-icons/ai";
 import { BiNews } from "react-icons/bi";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { BsCoin } from "react-icons/bs";
 import { Link } from "react-router-dom";
 const Navbar = () => {
@@ -30,13 +29,12 @@ const Navbar = () => {
             </li>
           </Link>
 
-          <Link className={style.link} to="/favorite">
+          {/* <Link className={style.link} to="/favorite">
             <li className={style["nav-item"]}>
               <MdOutlineFavoriteBorder size={30} />
-              {/* <AiOutlineLineChart size={30} /> */}
               <span className={style["link-text"]}>Favorites</span>
             </li>
-          </Link>
+          </Link> */}
 
           <Link className={style.link} to="/news">
             <li className={style["nav-item"]}>

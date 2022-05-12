@@ -26,7 +26,7 @@ const LineChart = ({
    * TODO Select 默認選項用useState儲存
    */
 
-  const [selectValue, setSelectValue] = useState("7d");
+  // const [selectValue, setSelectValue] = useState("7d");
   const coinPrice = [];
   const coinTimestamp = [];
 

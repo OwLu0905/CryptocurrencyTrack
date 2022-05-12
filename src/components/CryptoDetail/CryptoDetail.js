@@ -18,7 +18,6 @@ import { useSelector } from "react-redux";
 
 const CryptoDetail = () => {
   const favIem = useSelector((state) => state.fav.items);
-  console.log(favIem);
   const { coinId } = useParams();
   const [timePeriod, setTimePeriod] = useState("24h");
   const [timeIndex, setTimeIndex] = useState(1);

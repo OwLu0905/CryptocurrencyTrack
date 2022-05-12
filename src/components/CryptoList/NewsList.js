@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetCryptosQuery } from "../../api/cryptoApi";
 import { useGetCryptoNewsQuery } from "../../api/cryptoNewsApi";
+import Loading from "../../layout/Load/Loading";
 import NewsItem from "./NewsItem";
 import style from "./NewsList.module.css";
 
@@ -32,7 +33,13 @@ const NewsList = (props) => {
     setSelectValue(cryptoData?.data?.coins);
   }, [data, cryptoData]);
 
-  if (!data?.value) return <h1>Loading ...</h1>;
+  if (isFetching || !data?.value)
+    return (
+      <>
+        <Loading />
+      </>
+    );
+
   // const searchList = ["Bitcoin", "ETH", "SOL"];
   return (
     <>

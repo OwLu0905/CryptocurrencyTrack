@@ -24,10 +24,10 @@ const CryptoItem = (props) => {
     <li className={style.item} onClick={favHandler}>
       <Link className={style.crypto} to={`/cryptocurrency/${data.uuid}`}>
         <div className={style.icon}>
-          {/* <h2> */}
-          <span style={{ width: "2rem" }}>{data.rank}.</span>{" "}
+          <span style={{ width: "2rem", margin: "0rem 2rem" }}>
+            {data.rank}.
+          </span>{" "}
           <img src={data.iconUrl} alt={data.name} /> {data.name}
-          {/* </h2> */}
         </div>
         <p className={style.info}>{millify(data.price)}</p>
         <p className={style.info}>{millify(data.marketCap)}</p>
