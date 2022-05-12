@@ -3,7 +3,7 @@ import style from "./Navbar.module.css";
 
 import { AiOutlineHome, AiOutlineLineChart } from "react-icons/ai";
 import { BiNews } from "react-icons/bi";
-import { BsCoin } from "react-icons/bs";
+import { IoPlanetOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
@@ -12,33 +12,26 @@ const Navbar = () => {
         <ul className={style.navbar}>
           <li className={style["nav-logo"]}>
             <span className={` ${style["logo-text"]} `}>CryptoTracker</span>
-            <BsCoin size={30} />
+            <IoPlanetOutline size={40} />
           </li>
 
           <Link className={style.link} to="/">
             <li className={style["nav-item"]}>
-              <AiOutlineHome size={30} />
+              <AiOutlineHome size={60} />
               <span className={style["link-text"]}>Home</span>
             </li>
           </Link>
 
           <Link className={style.link} to="/cryptocurrency">
             <li className={style["nav-item"]}>
-              <AiOutlineLineChart size={30} />
+              <AiOutlineLineChart size={60} />
               <span className={style["link-text"]}>CryptoCurrency</span>
             </li>
           </Link>
 
-          {/* <Link className={style.link} to="/favorite">
-            <li className={style["nav-item"]}>
-              <MdOutlineFavoriteBorder size={30} />
-              <span className={style["link-text"]}>Favorites</span>
-            </li>
-          </Link> */}
-
           <Link className={style.link} to="/news">
             <li className={style["nav-item"]}>
-              <BiNews size={30} />
+              <BiNews size={60} />
               <span className={style["link-text"]}>News</span>
             </li>
           </Link>

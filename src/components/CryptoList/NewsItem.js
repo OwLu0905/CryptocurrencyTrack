@@ -1,13 +1,11 @@
 import React from "react";
 import style from "./NewsItem.module.css";
-import { BiMessageRoundedDetail } from "react-icons/bi";
 import moment from "moment";
 const NewsItem = (props) => {
   const description =
     props.news.description.length > 100
       ? `${props.news.description.substring(0, 100)} `
       : props.news.description;
-  console.log();
   return (
     <>
       <li className={style.item}>
@@ -20,12 +18,12 @@ const NewsItem = (props) => {
         </div>
         <div className={style.description}>
           <p>
-            {description}
-            ...
+            {description} ...
             <span>
               <a target="_blank" rel="noreferrer" href={props.news.url}>
-                see more
-                <BiMessageRoundedDetail size={"1.5rem"} />
+                {" "}
+                more
+                {/* <BiMessageRoundedDetail size={"1rem"} /> */}
               </a>
             </span>
           </p>

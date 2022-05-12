@@ -11,7 +11,9 @@
   margin: 8px;
   border-radius: 50%;
   border: 8px solid rgb(128, 98, 0);
-  border-color: rgb(115, 0, 128) transparent rgb(55, 128, 0) transparent;
+  /* border-color: rgb(115, 0, 128) transparent rgb(55, 128, 0) transparent; */
+  border-color: rgba(42, 194, 196, 0.786) transparent rgba(42, 194, 196, 0.786)
+    transparent;
   animation: spinner 1.2s linear infinite;
 }
 @keyframes spinner {

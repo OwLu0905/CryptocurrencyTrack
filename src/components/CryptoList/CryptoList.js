@@ -60,7 +60,7 @@ const CryptoList = (props) => {
         sortListHandler(filteredData);
         setCoinsValue((prev) => filteredData);
       });
-      console.log("render in use effect");
+      // console.log("render in use effect");
     }, 300);
     return () => {
       clearInterval(timer);
@@ -226,8 +226,6 @@ const CryptoList = (props) => {
             )}
           </div>
         </li>
-        {/* {isPending ? " Loading..." : null} */}
-        {/* {isSorting ? " Loading..." : null} */}
         {coinsValue?.map((coin) => (
           <CryptoItem key={coin.uuid} coin={coin} />
         ))}

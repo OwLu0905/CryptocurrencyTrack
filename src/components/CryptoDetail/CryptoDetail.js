@@ -15,6 +15,7 @@ import LineChart from "../Detail/LineChart";
 import HomeCard from "../../layout/HomeCard/HomeCard";
 import { TiTickOutline, TiTimesOutline } from "react-icons/ti";
 import { useSelector } from "react-redux";
+import Loading from "../../layout/Load/Loading";
 
 const CryptoDetail = () => {
   const favIem = useSelector((state) => state.fav.items);
@@ -40,7 +41,7 @@ const CryptoDetail = () => {
     const arr = { value: time[i], label: time[i] };
     timeArray.push(arr);
   }
-  if (isFetching) return <h1>Loading...</h1>;
+
   const stats = [
     {
       title: "Price to USD",
@@ -132,12 +133,17 @@ const CryptoDetail = () => {
   if (cryptoDetailItem?.description) {
     description = HTMLReactParser(cryptoDetailItem?.description);
   }
-
+  if (isFetching)
+    return (
+      <HomeCard>
+        <Loading />
+      </HomeCard>
+    );
   return (
     <>
       <HomeCard>
         <div className={style.abstract}>
-          <h1>
+          <h1 className={style.title}>
             <img
               src={cryptoDetailItem?.iconUrl}
               alt={cryptoDetailItem?.symbol}

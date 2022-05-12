@@ -2,31 +2,31 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CryptoItem.module.css";
 import millify from "millify";
-import { sendFavData } from "../../api/facAction";
-import { useDispatch, useSelector } from "react-redux";
-import { favActions } from "../../api/favSlice";
+// import { sendFavData } from "../../api/facAction";
+// import { useDispatch } from "react-redux";
+// import { favActions } from "../../api/favSlice";
 const CryptoItem = (props) => {
   const data = props.coin;
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const dailyChange = +data.change;
   let dailyChangeStyle = "black ";
   if (dailyChange > 0) {
-    dailyChangeStyle = "rgba(6, 84, 30, 0.766)";
+    dailyChangeStyle = "rgb(20, 106, 76)";
   } else {
     dailyChangeStyle = "rgba(196, 21, 21, 0.906)";
   }
 
-  const favHandler = () => {
-    dispatch(favActions.addFavItem({ uuid: data.uuid }));
-  };
+  // const favHandler = () => {
+  //   dispatch(favActions.addFavItem({ uuid: data.uuid }));
+  // };
 
   return (
-    <li className={style.item} onClick={favHandler}>
+    <li className={style.item}>
       <Link className={style.crypto} to={`/cryptocurrency/${data.uuid}`}>
         <div className={style.icon}>
           <span style={{ width: "2rem", margin: "0rem 2rem" }}>
             {data.rank}.
-          </span>{" "}
+          </span>
           <img src={data.iconUrl} alt={data.name} /> {data.name}
         </div>
         <p className={style.info}>{millify(data.price)}</p>

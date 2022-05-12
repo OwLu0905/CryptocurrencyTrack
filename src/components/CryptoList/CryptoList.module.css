@@ -8,7 +8,7 @@
 }
 
 .select {
-  color: rgba(255, 25, 109, 0.723);
+  color: rgba(215, 27, 96, 0.723);
   font-weight: bold;
   z-index: 1;
   width: 10rem;
@@ -33,14 +33,16 @@
   width: 100%;
   /* min-width: 20rem; */
   /* max-width: 40rem; */
-  background-color: rgba(255, 232, 255, 0.912);
+  /* background-color: rgba(255, 232, 255, 0.912); */
+  background-color: rgb(163, 208, 201);
   margin: 0.5rem;
   padding: 0.5 1rem 0.5 1rem;
   box-shadow: 3px 2px 5px #aaaaaa;
 }
 
 .crypto {
-  color: rgba(148, 11, 233, 0.657);
+  color: rgb(8, 78, 76);
+
   width: 100%;
   text-decoration: none;
   display: flex;
@@ -61,7 +63,7 @@
   font-weight: bold;
 }
 .icon p {
-  width: 30%;
+  width: 50%;
 }
 
 .info {
@@ -80,10 +82,12 @@
 .sort {
   color: #fff;
 
-  background-color: rgb(255, 127, 234);
+  /* background-color: rgb(255, 127, 234); */
+  /* background-color: rgb(25, 126, 151); */
+  background-color: rgb(121, 159, 171);
   box-shadow: 3px 2px 5px #aaaaaa;
   border-radius: 12px;
-  animation: bump 300ms ease-out;
+  animation: bump 500ms ease-out;
 }
 
 .sort:hover {

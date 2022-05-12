@@ -4,19 +4,23 @@
   width: 100%;
   /* min-width: 20rem; */
   /* max-width: 40rem; */
-  background-color: rgba(255, 250, 255, 0.912);
-  margin: 0.5rem;
-  padding: 0.5 1rem 0.5 1rem;
+  /* background-color: rgba(255, 250, 255, 0.912); */
+  /* background-color: rgba(239, 244, 228, 0.788); */
+  background-color: rgba(228, 242, 244, 0.788);
+  margin: 0.1rem 0.5rem;
+  padding: 0.5 1rem 0rem 1rem;
   box-shadow: 3px 2px 5px #aaaaaa;
 }
 
 .item:hover {
-  background-color: lightskyblue;
+  /* background-color: rgb(194, 250, 135); */
+  background-color: rgba(57, 179, 179, 0.726);
   transform: scale(1.01);
 }
 
 .crypto {
-  color: rgba(148, 11, 233, 0.657);
+  /* color: rgba(148, 11, 233, 0.657); */
+  color: rgba(17, 119, 137, 0.846);
   width: 100%;
   text-decoration: none;
   display: flex;
@@ -26,10 +30,11 @@
 }
 .crypto:hover,
 .crypto:active {
-  color: rgb(184, 47, 199);
+  /* color: rgb(184, 47, 199); */
+  color: rgb(249, 243, 223);
 }
 .icon {
-  font-size: 26px;
+  font-size: 20px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

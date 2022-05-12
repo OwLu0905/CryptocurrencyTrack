@@ -6,14 +6,12 @@
   width: 45%;
   min-width: 25rem;
   max-width: 50rem;
-  background-color: rgb(242, 248, 252);
-  /* margin: 1rem;
-  padding: 0 1rem 0 1rem; */
-  /* box-shadow: 10px 10px 5px #aaaaaa; */
-  margin: 0.5rem 1rem 0.5rem 0.5rem;
-  /* padding: 0.5 1rem 0.5 1rem; */
-  padding: 1.5rem;
+  /* background-color: rgb(242, 248, 252); */
+
+  background-color: rgb(169, 196, 195);
   box-shadow: 3px 2px 5px #aaaaaa;
+  margin: 1rem;
+  padding: 0rem 1rem;
 }
 
 .item a {
@@ -21,6 +19,11 @@
   width: 100%;
 }
 
+.item:hover {
+  transform: scale(1.01);
+  box-shadow: 10px 5px 5px #aaaaaa;
+  transition: 600ms;
+}
 .pic {
   font-weight: bold;
   font-size: 22px;
@@ -54,12 +57,12 @@
   align-items: center;
 } */
 .description p a {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  color: rgb(221, 152, 14);
-  font-style: italic;
+  color: rgb(201, 66, 91);
+  /* font-style: italic; */
 }
 
 .duration {

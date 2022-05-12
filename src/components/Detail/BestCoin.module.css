@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(255, 214, 213);
+  background-color: rgb(234, 214, 214);
   /* margin: 0rem 0.5rem 0.5rem 0.5rem; */
   padding: 0 0.5rem;
   border-bottom: 1px solid rosybrown;
@@ -12,7 +12,7 @@
 }
 
 .globalPara:hover {
-  background-color: coral;
+  background-color: rgba(230, 116, 161, 0.876);
   color: #fff;
 }
 .globalPara img {

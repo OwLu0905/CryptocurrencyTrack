@@ -20,12 +20,13 @@ const NewsList = (props) => {
    * TODO select option要用state儲存，不然每次跳轉頁面都會回到default type
    */
   const { data: cryptoData } = useGetCryptosQuery(count);
-
+  const [selectNews, setSelectNews] = useState("Crypto News");
   const [newsValue, setNewsValue] = useState([]);
   const [selectValue, setSelectValue] = useState([]);
 
   const searchHandler = (e) => {
     setSearchValue(e.target.value);
+    setSelectNews(e.target.value);
   };
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const NewsList = (props) => {
         <div className={style.news}>
           <label htmlFor="coins">Get News :</label>
           <select className={style.select} id="coins" onChange={searchHandler}>
-            <option>Crypto News</option>
+            <option>{selectNews}</option>
             {selectValue?.map((item) => (
               <option key={item.uuid}>{item.name}</option>
             ))}

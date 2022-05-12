@@ -25,6 +25,15 @@
   background-color: rgb(241, 253, 249);
 } */
 
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title img {
+  margin-right: 1rem;
+}
+
 .wrap {
   display: flex;
   justify-content: center;
@@ -34,10 +43,11 @@
   width: 50%;
   margin: 1rem;
   padding: 0 1rem;
-  background-color: rgb(241, 253, 249);
+  background-color: rgba(251, 250, 238, 0.64);
+  /* background-color: rgb(227, 250, 242); */
 }
 .description h1 {
-  padding-left: 0rem;
+  padding: 0rem 0.5rem;
 }
 
 .description p {

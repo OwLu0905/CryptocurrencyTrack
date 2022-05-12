@@ -9,7 +9,8 @@
 }
 
 .links li:hover {
-  background-color: bisque;
+  background-color: rgb(202, 164, 117);
+  color: rgb(150, 238, 150);
 }
 
 .para {
@@ -19,14 +20,14 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid sandybrown;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .para p {
   margin: 0.6rem;
   padding: 0;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(6, 87, 6);
 }
 
@@ -42,4 +43,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.cite:hover {
+  color: rgb(131, 249, 131);
 }

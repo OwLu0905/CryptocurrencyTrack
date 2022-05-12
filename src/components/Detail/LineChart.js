@@ -1,9 +1,10 @@
-import React, { cloneElement, useEffect, useState } from "react";
+import React from "react";
 import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 import millify from "millify";
 import Select from "react-select";
 import style from "./LineChart.module.css";
+import Loading from "../../layout/Load/Loading";
 Chart.register(...registerables);
 
 // options={timeArray}
@@ -130,7 +131,7 @@ const LineChart = ({
         <h1>{name} Price Chart: </h1>
         <div className={style.change}>
           <div className={style["change-fetch"]}>
-            <h1>Loading</h1>
+            <Loading />
           </div>
           <Select
             options={timeArray}
@@ -178,7 +179,7 @@ const LineChart = ({
         </div>
       </div>
       <div className={style.chart}>
-        <Line data={data} options={option} height={"80%"} />
+        <Line data={data} options={option} height={"90%"} />
       </div>
     </>
   );
